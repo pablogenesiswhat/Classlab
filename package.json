@@ -1,0 +1,14 @@
+{
+  "name": "classroomaddon",
+  "version": "0.0.1",
+  "description": "Addon classroom masive",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Edvolution Labs",
+  "license": "ISC",
+  "dependencies": {
+    "googleapis": "^39.2.0"
+  }
+}
