@@ -10,6 +10,7 @@
   ],
   "TOKEN_PATH": "./credentials/token.json",
   "CREDENTIAL_PATH": "./credentials/credential.json",
-  "SHEETS_VERSION": "v4"
-
+  "SHEETS_VERSION": "v4",
+  "RANGE": "Render_Script!A1:C1",
+  "CLASSROOM_VERSION": "v1"
 }

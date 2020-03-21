@@ -1,6 +1,6 @@
 const readline = require('readline');
 const { google } = require('googleapis');
-const { SHEETS_VERSION } = require("./config");
+const { SHEETS_VERSION, RANGE } = require("./config");
 
 module.exports = class {
   constructor(auth) {
@@ -10,7 +10,7 @@ module.exports = class {
     });
   }
 
-  getSheetCourse() {
+  getSheet(callback) {
     const sheets = this.sheets;
 
     const rl = readline.createInterface({
@@ -20,12 +20,35 @@ module.exports = class {
     rl.question('Enter the id of the spreadsheet: ', (spreadsheetID) => {
       rl.close();
       const options = {
-        spreadsheetId: spreadsheetID
+        spreadsheetId: spreadsheetID,
+        range: RANGE,
+        majorDimension: "ROWS"
       };
 
-      sheets.spreadsheets.get(options, (err, res) => {
-        if (err) return console.log('The API returned an error: ' + err);
-        console.log(res.data.sheets);
+      sheets.spreadsheets.values.get(options, (err, res) => {
+        if (err) {
+          if (callback) return callback({ err: err });
+          else return console.error(err);
+        } else {
+          const values  = res.data.values;
+          const tmp = {
+            courses: values[0][0].split(","),
+            teachers: values[0][1].split(","),
+            students: values[0][2].split(",")
+          }
+          const parse = (value) => {
+            if (value !== "")
+              return value;
+          }
+          const response = {
+            courses: tmp.courses.filter(parse),
+            teachers: tmp.teachers.filter(parse),
+            students: tmp.students.filter(parse)
+          };
+          
+          if (callback) return callback({ res: response });
+          else return console.log(res.data.values);
+        }
       });
     });
   }

@@ -5,6 +5,9 @@ function create() {
   node "./command/classroom/create.js"
 }
 
+function login() {
+  node "./command/login.js"
+}
 # -----------------------------------------------------------------------------
 # component option to validate
 start=$(which $1)
