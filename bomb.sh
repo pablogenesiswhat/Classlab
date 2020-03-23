@@ -8,14 +8,18 @@ function create() {
 function login() {
   node "./command/login.js"
 }
+
+function help() {
+  cat ./.help
+}
 # -----------------------------------------------------------------------------
 # component option to validate
 start=$(which $1)
 
 # Start functions
-if [[ $start = " " ]];
+if [[ $start = "" ]];
   then
-    echo "Invalid option"
+    help
   else
     $1
 fi

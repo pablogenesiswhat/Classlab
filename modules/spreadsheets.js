@@ -1,6 +1,7 @@
 const readline = require('readline');
 const { google } = require('googleapis');
 const { SHEETS_VERSION, RANGE } = require("./config");
+const { error, info } = require("./logger");
 
 module.exports = class {
   constructor(auth) {
@@ -25,10 +26,12 @@ module.exports = class {
         majorDimension: "ROWS"
       };
 
+      info(`Reading spreadsheet by id: ${spreadsheetID}`);
+
       sheets.spreadsheets.values.get(options, (err, res) => {
         if (err) {
           if (callback) return callback({ err: err });
-          else return console.error(err);
+          else return error(err);
         } else {
           const values  = res.data.values;
           const tmp = {
@@ -45,9 +48,9 @@ module.exports = class {
             teachers: tmp.teachers.filter(parse),
             students: tmp.students.filter(parse)
           };
-          
+
           if (callback) return callback({ res: response });
-          else return console.log(res.data.values);
+          else return info(res.data.values);
         }
       });
     });

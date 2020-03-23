@@ -1,5 +1,6 @@
 const { google } = require('googleapis');
 const { CLASSROOM_VERSION } = require("./config");
+const { error, info } = require("./logger");
 
 module.exports = class {
   constructor(auth) {
@@ -27,9 +28,10 @@ module.exports = class {
 
         classroom.courses.teachers.create(options, (err, res) => {
           if (err) {
-            return console.error(err, teachers);
+            return error(err, teachers);
           } else {
             count ++;
+            info(`Teacher provisioned: '${teacher}' in '${options.courseId}'`);
             teachers.push(teacher);
             setTeacher();
           }
@@ -56,9 +58,10 @@ module.exports = class {
 
         classroom.courses.students.create(options, (err, res) => {
           if (err) {
-            return console.error(err, students);
+            return error(err, students);
           } else {
             count ++;
+            info(`Student provisioned: '${student}' in '${options.courseId}'`);
             students.push(student);
             setStudent();
           }
@@ -86,11 +89,12 @@ module.exports = class {
 
         classroom.courses.create(options, (err, res) => {
           if (err) {
-            return console.error(err, courses);
+            return error(err, courses);
           } else {
             count ++;
             courses.push(res.data.id);
-            console.log(`Class created: name ${res.data.name}`);
+            info(`Class created: name '${res.data.name}' id '${res.data.id}'`);
+            info(`Teacher provisioned: '${options.requestBody.ownerId}' in '${res.data.id}'`);
             coursesCreate();
           }
         });

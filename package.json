@@ -9,6 +9,8 @@
   "author": "Edvolution Labs",
   "license": "ISC",
   "dependencies": {
-    "googleapis": "^39.2.0"
+    "googleapis": "^39.2.0",
+    "morgan": "^1.10.0",
+    "winston": "^3.2.1"
   }
 }

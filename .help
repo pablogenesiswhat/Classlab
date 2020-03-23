@@ -1,0 +1,10 @@
+bomb <option>
+
+  options:
+
+    create:
+      Create classes provided with teachers and students according to the
+      spreadsheet template: http://gg.gg/gyk8e
+
+    login:
+      Save Google authentication token to provision classes
