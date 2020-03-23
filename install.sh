@@ -12,6 +12,7 @@ function init_term() {
   if [[ $ter1 = *bash ]];
     then
       echo $bomba >> ~/.bashrc
+      source ~/.bashrc
   fi
 
   if [[ $ter2 = *zsh ]];
