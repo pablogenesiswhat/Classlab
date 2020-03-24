@@ -2,7 +2,7 @@
 
 sudo "./config.sh"
 
-Classlab="/opt/Classlab"
+export Classlab="/opt/Classlab"
 alias bomb="$Classlab/bomb.sh"
 
 bomb init
