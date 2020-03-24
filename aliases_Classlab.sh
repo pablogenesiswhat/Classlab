@@ -1,2 +1,2 @@
-# Classlab="/opt/Classlab"
-alias bomb="/opt/bomb.sh"
+Classlab="/opt/Classlab"
+alias bomb="$Classlab/bomb.sh"
