@@ -23,5 +23,5 @@ function init_env() {
   echo $secretClient >> .env
 }
 
-init_term
 init_env
+init_term

@@ -2,15 +2,15 @@
 # -----------------------------------------------------------------------------
 # options in functions
 function create() {
-  node "./command/classroom/create.js"
+  node "/command/classroom/create.js"
 }
 
 function login() {
-  node "./command/login.js"
+  node "/command/login.js"
 }
 
 function help() {
-  cat ./.help
+  cat /.help
 }
 
 # -----------------------------------------------------------------------------
