@@ -12,6 +12,7 @@ function init_term() {
 function init_env() {
   echo "Go to the https://console.cloud.google.com/apis/credentials/oauthclient"
   echo "Select Other in Type of application and click on the save button."
+  echo "See Image https://raw.githubusercontent.com/pablogenesiswhat/Classlab/master/IMG/OAuth_client.PNG"
 
   read -p "Paste your client id: " idClient
   read -p "Paste your secret client: " secretClient
