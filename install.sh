@@ -1,18 +1,10 @@
 #!/bin/bash
 function init_term() {
-  x="alias bomb='"
-  path=$(pwd)
-  slash="/bomb.sh'"
+  mv -r aliases_Classlab.sh /etc/profile.d/
+  cd ..
+  mv -r Classlab /opt/
 
-  bomba=$x$path$slash
-
-  ter1=$(which bash)
-
-  if [[ $ter1 = *bash ]];
-    then
-      echo $bomba >> ~/.bashrc
-      source ~/.bashrc
-  fi
+  alias bomb="/opt/Classlab/bomb.sh"
 }
 
 # -----------------------------------------------------------------------------
@@ -27,7 +19,7 @@ function init_env() {
   idClient="CLIENT_ID=$idClient"
   secretClient="CLIENT_SECRET=$secretClient"
 
-  echo $idClient >> .env
+  echo $idClient > .env
   echo $secretClient >> .env
 }
 
