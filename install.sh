@@ -24,27 +24,6 @@ function init_env() {
 }
 
 # -----------------------------------------------------------------------------
-# Nodejs version check (v10.x required)
-function installPackages() {
-  mkdir credentials
-  npm install
-
-  init_term
-  # echo /etc/profile << $bomb
-}
-
-vNode=$(which node)
-if [[ $vNode = "" ]];
-  then
-    echo "Please install nodejs v10.x visit: https://nodejs.org/es/download/package-manager/"
-  else
-    if [[ $(node -v) = v10* ]];
-      then installPackages
-      else echo "Please install nodejs v10.x visit: https://nodejs.org/es/download/package-manager/"
-    fi
-fi
-
-# -----------------------------------------------------------------------------
 # Providing GCP project
 function activeApis() {
   gcloud services enable sheets.googleapis.com
@@ -57,6 +36,21 @@ if [[ $SDKGcloud = "" ]];
     echo "Not found: Google SDK visit: https://cloud.google.com/sdk/docs/downloads-interactive?hl=es"
   else
     activeApis
+fi
+
+# -----------------------------------------------------------------------------
+# Nodejs version check (v10.x required)
+function installPackages() {
+  mkdir credentials
+  npm install
+
+  init_term
+  # echo /etc/profile << $bomb
+}
+
+if [[ $(node -v) = v10* ]];
+  then installPackages
+  else echo "Please install nodejs v10.x visit: https://nodejs.org/es/download/package-manager/"
 fi
 
 init_term
