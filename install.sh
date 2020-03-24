@@ -1,7 +1,11 @@
 #!/bin/bash
+sudo "./config.sh" "init_env"
+mkdir credentials && npm install
+
+gcloud services enable sheets.googleapis.com
+gcloud services enable classroom.googleapis.com
+
 sudo "./config.sh" "init_term"
-sudo "/opt/Classlab/config.sh" "init_env"
-"/optClasslab/config.sh" "installDependencies"
 
 echo ""
 echo "-------------------------------------------------------"
