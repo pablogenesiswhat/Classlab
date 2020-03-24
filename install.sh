@@ -18,9 +18,6 @@ function init_term() {
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
 function init_env() {
-  cd $HOME
-  cd ..
-
   echo "Go to the https://console.cloud.google.com/apis/credentials/oauthclient"
   echo "Select Other in Type of application and click on the save button."
 
