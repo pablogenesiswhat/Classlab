@@ -24,21 +24,6 @@ function init_env() {
 }
 
 # -----------------------------------------------------------------------------
-# Providing GCP project
-function activeApis() {
-  gcloud services enable sheets.googleapis.com
-  gcloud services enable classroom.googleapis.com
-}
-
-SDKGcloud=$(which gcloud)
-if [[ $SDKGcloud = "" ]];
-  then
-    echo "Not found: Google SDK visit: https://cloud.google.com/sdk/docs/downloads-interactive?hl=es"
-  else
-    activeApis
-fi
-
-# -----------------------------------------------------------------------------
 # Nodejs version check (v10.x required)
 function installPackages() {
   mkdir credentials
