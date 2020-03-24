@@ -1,6 +1,6 @@
 #!/bin/bash
 function init_term() {
-  mv aliases_Classlab.sh /etc/profile.d/
+  cp aliases_Classlab.sh /etc/profile.d/
   cd ..
   mv Classlab /opt/
 

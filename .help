@@ -1,10 +1,15 @@
-bomb <option>
 
-  options:
+COMMAND clab [OPTION]
 
-    create:
-      Create classes provided with teachers and students according to the
-      spreadsheet template: http://gg.gg/gyk8e
+  [OPTION]     DESCRIPTION
 
-    login:
-      Save Google authentication token to provision classes
+  create       Create classes provided with teachers and students according
+               to the spreadsheet template: http://gg.gg/gyk8e
+
+  login        Save Google authentication token to provision classes
+
+  init         OAuth client id and secret mapping.
+
+  update       SDK update
+
+...

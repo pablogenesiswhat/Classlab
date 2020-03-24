@@ -1,2 +1,2 @@
 export Classlab="/opt/Classlab"
-alias bomb="$Classlab/bomb.sh"
+alias clab="$Classlab/bomb.sh"

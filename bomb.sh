@@ -2,15 +2,23 @@
 # -----------------------------------------------------------------------------
 # options in functions
 function create() {
-  node $Classlab/command/classroom/create.js
+  node "$Classlab/command/classroom/create.js"
 }
 
 function login() {
-  node $Classlab/command/login.js
+  node "$Classlab/command/login.js"
 }
 
 function help() {
-  cat $Classlab/.help
+  cat "$Classlab/.help"
+}
+
+function init() {
+  sudo "$Classlab/config.sh" "init_env"
+}
+
+function update() {
+  git fetch
 }
 
 # -----------------------------------------------------------------------------
@@ -18,9 +26,9 @@ function help() {
 start=$(which $1)
 
 # Start functions
-if [[ $start = " " || $start = "" ]];
+if [[ $start = " " ]];
   then
-    help
+    ""
   else
     $1
 fi
