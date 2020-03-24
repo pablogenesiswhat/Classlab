@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const fs = require('fs');
 const { SCOPES, TOKEN_PATH, CREDENTIAL_PATH } = require("./config");
 const readline = require('readline');
@@ -9,10 +11,11 @@ const { google } = require('googleapis');
  * @param {Object} credentials The authorization client credentials.
  * @param {function} callback The callback to call with the authorized client.
  */
-function authorize(credentials, callback) {
-  const {client_secret, client_id, redirect_uris} = credentials.installed;
+function authorize(callback) {
   const oAuth2Client = new google.auth.OAuth2(
-      client_id, client_secret, redirect_uris[0]);
+      process.env.CLIENT_ID,
+      process.env.CLIENT_SECRET,
+      "urn:ietf:wg:oauth:2.0:oob");
 
   // Check if we have previously stored a token.
   fs.readFile(TOKEN_PATH, (err, token) => {
@@ -23,9 +26,10 @@ function authorize(credentials, callback) {
 }
 
 function login(credentials) {
-  const {client_secret, client_id, redirect_uris} = credentials.installed;
   const oAuth2Client = new google.auth.OAuth2(
-    client_id, client_secret, redirect_uris[0]);
+      process.env.CLIENT_ID,
+      process.env.CLIENT_SECRET,
+      "urn:ietf:wg:oauth:2.0:oob");
 
   return getNewToken(oAuth2Client);
 }
@@ -75,14 +79,11 @@ module.exports = class {
   exec() {
     // Load client secrets from a local file.
     const promise = new Promise((resolve, reject) => {
-      fs.readFile(CREDENTIAL_PATH, (err, content) => {
-        if (err) return console.log('Error loading client secret file:', err);
         // Authorize a client with credentials, then call the Google Sheets API.
-        authorize(JSON.parse(content), (auth, err) => {
+        authorize((auth, err) => {
           if (err) return reject(err);
           return resolve(auth);
         });
-      });
     });
 
     return promise;

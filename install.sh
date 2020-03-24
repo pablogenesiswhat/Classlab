@@ -7,22 +7,32 @@ function init_term() {
   bomba=$x$path$slash
 
   ter1=$(which bash)
-  ter2=$(which zsh)
 
   if [[ $ter1 = *bash ]];
     then
       echo $bomba >> ~/.bashrc
       source ~/.bashrc
   fi
-
-  if [[ $ter2 = *zsh ]];
-    then
-      echo $bomba >> ~/.zshrc
-  fi
-
 }
 
-init_term
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+function init_env() {
+  cd $HOME
+  cd ..
+
+  echo "Go to the https://console.cloud.google.com/apis/credentials/oauthclient"
+  echo "Select Other in Type of application and click on the save button."
+
+  read -p "Paste your client id: " idClient
+  read -p "Paste your secret client: " secretClient
+
+  idClient="CLIENT_ID=$idClient"
+  secretClient="CLIENT_SECRET=$secretClient"
+
+  echo $idClient >> .env
+  echo $secretClient >> .env
+}
 
 # -----------------------------------------------------------------------------
 # Nodejs version check (v10.x required)
@@ -33,6 +43,7 @@ function installPackages() {
   init_term
   # echo /etc/profile << $bomb
 }
+
 vNode=$(which node)
 if [[ $vNode = "" ]];
   then
@@ -58,3 +69,6 @@ if [[ $SDKGcloud = "" ]];
   else
     activeApis
 fi
+
+init_term
+init_env
