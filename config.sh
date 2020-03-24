@@ -43,14 +43,4 @@ function installDependencies() {
   fi
 }
 
-# -----------------------------------------------------------------------------
-# component option to validate
-start=$(which $1)
-
-# Start functions
-if [[ $start = " " || $start = "" ]];
-  then
-    echo "Error"
-  else
-    $1
-fi
+$1
