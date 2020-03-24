@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo ./
+sudo ./config.sh
 
 Classlab="/opt/Classlab"
 alias bomb="$Classlab/bomb.sh"
