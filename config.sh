@@ -10,9 +10,14 @@ function init_term() {
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
 function init_env() {
+  cd "/opt/Classlab"
+
+  echo ""
   echo "Go to the https://console.cloud.google.com/apis/credentials/oauthclient"
   echo "Select Other in Type of application and click on the save button."
+  echo "----------------------------------------------------------------------"
   echo "See Image https://raw.githubusercontent.com/pablogenesiswhat/Classlab/master/IMG/OAuth_client.PNG"
+  echo "----------------------------------------------------------------------"
 
   read -p "Paste your client id: " idClient
   read -p "Paste your secret client: " secretClient
@@ -38,6 +43,7 @@ function installDependencies() {
 
   if [[ $(node -v) = v10* ]];
     then
+      cd "/opt/Classlab"
       mkdir credentials
       npm install
     else echo "Please install nodejs v10.x visit: https://nodejs.org/es/download/package-manager/"
