@@ -1,8 +1,9 @@
 #!/bin/bash
-
-sudo "./config.sh"
-
 export Classlab="/opt/Classlab"
 alias bomb="$Classlab/bomb.sh"
 
-"$Classlab/bomb.sh" init
+sudo "./config.sh" init_env
+"./config.sh" installDependencies
+sudo "./config.sh" init_env
+
+init_term
