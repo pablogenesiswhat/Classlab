@@ -38,7 +38,7 @@ function init() {
 start=$(which $1)
 
 # Start functions
-if [[ $start = "" ]];
+if [[ $start = " " || $start = "" ]];
   then
     help
   else

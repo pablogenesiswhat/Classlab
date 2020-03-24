@@ -5,4 +5,4 @@ sudo "./config.sh"
 export Classlab="/opt/Classlab"
 alias bomb="$Classlab/bomb.sh"
 
-bomb init
+"$Classlab/bomb.sh" init
