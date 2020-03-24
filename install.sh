@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo "./config.sh" "init_term"
-sudo "./config.sh" "init_env"
-"./config.sh" "installDependencies"
+sudo "/opt/Classlab/config.sh" "init_env"
+"/optClasslab/config.sh" "installDependencies"
 
 echo ""
 echo "-------------------------------------------------------"
