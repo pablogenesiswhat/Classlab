@@ -24,6 +24,13 @@ function init() {
       gcloud services enable sheets.googleapis.com
       gcloud services enable classroom.googleapis.com
   fi
+
+  if [[ $(node -v) = v10* ]];
+    then
+      mkdir credentials
+      npm install
+    else echo "Please install nodejs v10.x visit: https://nodejs.org/es/download/package-manager/"
+  fi
 }
 
 # -----------------------------------------------------------------------------

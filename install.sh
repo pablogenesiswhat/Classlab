@@ -23,20 +23,5 @@ function init_env() {
   echo $secretClient >> .env
 }
 
-# -----------------------------------------------------------------------------
-# Nodejs version check (v10.x required)
-function installPackages() {
-  mkdir credentials
-  npm install
-
-  init_term
-  # echo /etc/profile << $bomb
-}
-
-if [[ $(node -v) = v10* ]];
-  then installPackages
-  else echo "Please install nodejs v10.x visit: https://nodejs.org/es/download/package-manager/"
-fi
-
 init_term
 init_env
