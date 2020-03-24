@@ -1,8 +1,8 @@
 #!/bin/bash
 function init_term() {
-  mv -r aliases_Classlab.sh /etc/profile.d/
+  mv aliases_Classlab.sh /etc/profile.d/
   cd ..
-  mv -r Classlab /opt/
+  mv Classlab /opt/
 
   alias bomb="/opt/Classlab/bomb.sh"
 }
