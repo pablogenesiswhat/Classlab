@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo "./config.sh" "init_env"
-mkdir credentials && npm install
+npm install
 
 gcloud services enable sheets.googleapis.com
 gcloud services enable classroom.googleapis.com

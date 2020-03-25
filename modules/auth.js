@@ -2,9 +2,11 @@ const { resolve } = require('path');
 require('dotenv').config({ path:  resolve(__dirname, `../.env` )});
 
 const fs = require('fs');
-const { SCOPES, TOKEN_PATH, CREDENTIAL_PATH } = require("./config");
+const { SCOPES, CREDENTIAL_PATH } = require("./config");
 const readline = require('readline');
 const { google } = require('googleapis');
+
+const TOKEN_PATH_REFINDER = `${process.env.HOME}/`;
 
 /**
  * Create an OAuth2 client with the given credentials, and then execute the
@@ -19,7 +21,7 @@ function authorize(callback) {
       "urn:ietf:wg:oauth:2.0:oob");
 
   // Check if we have previously stored a token.
-  fs.readFile(TOKEN_PATH, (err, token) => {
+  fs.readFile(TOKEN_PATH_REFINDER, (err, token) => {
     if (err) return getNewToken(oAuth2Client, callback);
     oAuth2Client.setCredentials(JSON.parse(token));
     callback(oAuth2Client);
@@ -62,9 +64,9 @@ function getNewToken(oAuth2Client, callback) {
       }
       oAuth2Client.setCredentials(token);
       // Store the token to disk for later program executions
-      fs.writeFile(TOKEN_PATH, JSON.stringify(token), (err) => {
+      fs.writeFile(TOKEN_PATH_REFINDER, JSON.stringify(token), (err) => {
         if (err) {
-          console.erro('Dont save Token', err);
+          console.error('Dont save Token', err);
           if (callback)
             return callback(undefined, err);
         }
