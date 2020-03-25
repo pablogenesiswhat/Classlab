@@ -2,11 +2,11 @@ const { resolve } = require('path');
 require('dotenv').config({ path:  resolve(__dirname, `../.env` )});
 
 const fs = require('fs');
-const { SCOPES, CREDENTIAL_PATH } = require("./config");
+const { SCOPES, TOKEN_PATH } = require("./config");
 const readline = require('readline');
 const { google } = require('googleapis');
 
-const TOKEN_PATH_REFINDER = `${process.env.HOME}/`;
+const TOKEN_PATH_REFINDER = `${process.env.HOME}/${TOKEN_PATH}`;
 
 /**
  * Create an OAuth2 client with the given credentials, and then execute the
@@ -70,7 +70,7 @@ function getNewToken(oAuth2Client, callback) {
           if (callback)
             return callback(undefined, err);
         }
-        console.log('Token stored to', TOKEN_PATH);
+        console.log('Token stored to', TOKEN_PATH_REFINDER);
       });
       if (callback)
         callback(oAuth2Client);
