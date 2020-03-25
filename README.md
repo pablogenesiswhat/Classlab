@@ -17,11 +17,14 @@ Provisioning of courses within the classroom, these courses are provisioned with
 
 1. [Create project in GCP](https://console.cloud.google.com/projectcreate)
 2. Go to configure **[OAuth consent screen](https://console.cloud.google.com/apis/credentials/consent)**
-- User Type label: Internal (Click on later click on create)
-    ![](https://raw.githubusercontent.com/pablogenesiswhat/Classlab/master/IMG/userType.PNG)
+
+- User Type label: Internal (Click create)
+
+![](https://raw.githubusercontent.com/pablogenesiswhat/Classlab/master/IMG/userType.PNG)
 
 - Assign name to the application and click on create button
-    ![](https://raw.githubusercontent.com/pablogenesiswhat/Classlab/master/IMG/userType_appName.PNG)
+
+![](https://raw.githubusercontent.com/pablogenesiswhat/Classlab/master/IMG/userType_appName.PNG)
 
 ---
 #### Installation
