@@ -25,8 +25,8 @@ function init_env() {
   idClient="CLIENT_ID=$idClient"
   secretClient="CLIENT_SECRET=$secretClient"
 
-  echo $idClient > /opt/Classlab/.env
-  echo $secretClient >> /opt/Classlab/.env
+  echo $idClient > .env
+  echo $secretClient >> .env
 }
 
 $1
